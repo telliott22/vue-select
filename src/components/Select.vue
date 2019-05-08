@@ -183,6 +183,15 @@
       },
 
       /**
+       * Enables/disables deslecting a selected option if it is selected again.
+       * @type {Boolean}
+       */
+      deselectable: {
+        type: Boolean,
+        default: false
+      },
+
+      /**
        * Close a dropdown when an option is chosen. Set to false to keep the dropdown
        * open (useful when combined with multi-select, for example)
        * @type {Boolean}
@@ -478,7 +487,9 @@
        * @return {void}
        */
       select(option) {
-        if (!this.isOptionSelected(option)) {
+        if (this.isOptionSelected(option) && this.deselectable) {
+          this.deselect(option);
+        }else{
           if (this.taggable && !this.optionExists(option)) {
             option = this.createOption(option)
           }
