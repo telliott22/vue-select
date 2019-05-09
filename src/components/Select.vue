@@ -489,7 +489,7 @@
       select(option) {
         if (this.isOptionSelected(option) && this.deselectable) {
           this.deselect(option);
-        }else{
+        }else if(!this.isOptionSelected(option)){
           if (this.taggable && !this.optionExists(option)) {
             option = this.createOption(option)
           }
