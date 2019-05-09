@@ -539,6 +539,15 @@
       },
 
       /**
+       * Enables/disables deslecting a selected option if it is selected again.
+       * @type {Boolean}
+       */
+      deselectable: {
+        type: Boolean,
+        default: false
+      },
+
+      /**
        * Callback to generate the label text. If {option}
        * is an object, returns option[this.label] by default.
        *
@@ -833,7 +842,9 @@
        * @return {void}
        */
       select(option) {
-        if (!this.isOptionSelected(option)) {
+        if (this.isOptionSelected(option) && this.deselectable) {
+          this.deselect(option);
+        }else{ 
           if (this.taggable && !this.optionExists(option)) {
             option = this.createOption(option)
           }
