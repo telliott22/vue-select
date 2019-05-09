@@ -47,6 +47,13 @@
         </label>
       </div>
 
+      <div class="list-item">
+        <label for="deselectToggle">
+          <input id="deselectToggle" type="checkbox" v-model="configuration.deselectable">
+          <code>:deselectable="{{ configuration.deselectable ? 'true' : 'false' }}"</code>
+        </label>
+      </div>
+
       <h5 class="list-item">Tagging</h5>
 
       <div class="list-item">
@@ -177,6 +184,7 @@ const defaultConfig = () => ({
   filterable: true,
   noDrop: false,
   closeOnSelect: true,
+  deselectable: false,
   disabled: false,
   selectOntab: false,
   placeholder: 'Select a Country...',

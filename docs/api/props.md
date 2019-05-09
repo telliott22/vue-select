@@ -109,6 +109,17 @@ transition: {
 },
 ```
 
+## deselectable
+
+Enables/disables deslecting a selected option if it is selected again.
+
+```js
+ deselectable: {
+	type: Boolean,
+	default: false
+},
+```
+
 ## clearSearchOnSelect
 
 Enables/disables clearing the search text when an option is selected.
